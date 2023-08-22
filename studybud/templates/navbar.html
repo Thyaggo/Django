@@ -1,15 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <a href="/">
-        <h1>Logo</h1>
-    </a>
+<a href="/">
+    <h1>Logo</h1>
+</a>
 
-    <hr>
-</body>
-</html>
+{% if request.user.is_authenticated %}
+<p>Hello {{request.user}}</p>
+<a href="logout">LogOut</a>
+{% else %}
+<a href="{% url 'login' %}">Login</a>
+{% endif %}
+
+<form action="{% url 'home' %}" method="GET">
+    <input type="text" name="q" placeholder="Seach Room..." />
+</form>
+
+<hr>

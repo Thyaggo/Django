@@ -1,14 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    {% extends 'main.html' %}
-    {% block content %}
-    <h1>{{room.name}}</h1>
-    {% endblock %}
-</body>
-</html>
+{% extends 'main.html' %}
+{% block content %}
+<h1>{{room.name}}</h1>
+<p>{{room.description}}</p>
+
+<div class="comment-wrapper">
+    <h3>Conversation</h3>
+    <hr>
+
+    {% for message in messages %}
+    <div class="comment">
+        <p class="comment-date-user">@{{message.user}} {{message.created|timesince}}</p>
+        <p class="comment-content">{{message.body}}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
