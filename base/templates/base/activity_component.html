@@ -1,0 +1,10 @@
+<h3>Feed</h3>
+<hr>
+{% for message in messages_feed %}
+    <div>
+        <span>@{{message.user}} from '{{message.room}}'</span>
+        <p>{{message.body}}</p>
+        <small>{{message.created}} in {{top}}</small>
+        <hr>
+    </div>
+{% endfor %}

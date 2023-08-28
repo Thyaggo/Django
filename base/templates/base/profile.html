@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<style>
+    .profile-conteiner {
+        display: grid;
+    }
+</style>
+
+<h1>{{user.username}}</h1>
+
+<div>
+    <div class="profile-conteiner">
+        {% include 'base/feed_component.html' %}
+    </div>
+</div>
+
+{% endblock %}
